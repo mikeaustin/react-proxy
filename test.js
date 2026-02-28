@@ -26,6 +26,40 @@ class App extends Component {
 
     // console.log(this.proxy.title);
   }
+
+  onRouteChange = () => {
+    this.setState;
+  };
 }
 
 const app = new App();
+
+const Header = () => {
+
+};
+
+// How to update only 1 of 1000s of children?
+
+const List = () => {
+  const selectedId = signal(0);
+
+  const handleTitleSet = (newSelectedId) => {
+    title.set(newSelectedId);
+  };
+
+  return (props) => (
+    <div>
+      <Item id={1} selected={selectedId === 1} />
+      <Item id={2} selected={selectedId === 2} />
+      <Item id={3} selected={selectedId === 3} />
+    </div>
+  );
+};
+
+const Item = () => {
+  return ({ id, onSelect }) => (
+    <div onClick={() => onSelect(id)}>
+      {id}
+    </div>
+  );
+};
